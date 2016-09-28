@@ -22,8 +22,8 @@ from zope.viewlet.viewlet import ViewletBase
 from grokcore.viewlet import interfaces, util
 
 
+@interface.implementer(interfaces.IViewletManager)
 class ViewletManager(ViewletManagerBase):
-    interface.implements(interfaces.IViewletManager)
 
     template = None
 
