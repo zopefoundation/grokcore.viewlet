@@ -14,7 +14,7 @@ tests_require = [
     'zope.annotation',
     'zope.app.appsetup',
     'zope.app.publication',
-    'zope.app.wsgi',
+    'zope.app.wsgi[testlayer]',
     'zope.configuration',
     'zope.container',
     'zope.principalregistry',
