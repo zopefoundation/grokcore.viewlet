@@ -8,11 +8,11 @@ viewlet is registered for, not the actual viewlet itself.
 
 Let's look at the first template, which includes the viewlet::
 
-  >>> from zope.app.wsgi.testlayer import Browser
+  >>> from zope.testbrowser.wsgi import Browser
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open("http://localhost/cave/@@index")
-  >>> print browser.contents
+  >>> print(browser.contents)
   <grokcore.viewlet.ftests.viewlet.template_namespaces.Cave object at ...>
   <grokcore.viewlet.ftests.viewlet.template_namespaces.Index object at ...>
   <grokcore.viewlet.ftests.viewlet.template_namespaces.MirandaViewlet object at ...>
@@ -23,7 +23,7 @@ This is indeed what we expected from the viewlet.
 Let's look at a template for the viewlet manager too::
 
   >>> browser.open("http://localhost/cave/@@necklace")
-  >>> print browser.contents
+  >>> print(browser.contents)
   <grokcore.viewlet.ftests.viewlet.template_namespaces.Cave object at ...>
   <grokcore.viewlet.ftests.viewlet.template_namespaces.Necklace object at ...>
   <grokcore.viewlet.ftests.viewlet.template_namespaces.CavewomenViewletManagerWithTemplate object at ...>

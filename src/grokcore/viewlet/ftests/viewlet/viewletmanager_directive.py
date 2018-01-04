@@ -12,11 +12,11 @@ Set up a content object in the application root::
 Traverse to the view on the model object. We get the viewlets
 registered for the default layer, with the anybody permission::
 
-  >>> from zope.app.wsgi.testlayer import Browser
+  >>> from zope.testbrowser.wsgi import Browser
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open("http://localhost/fred/@@boneview")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Fred viewlet
 
 """

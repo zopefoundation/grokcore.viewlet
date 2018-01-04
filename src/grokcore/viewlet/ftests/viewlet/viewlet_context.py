@@ -10,7 +10,7 @@ Set up the model object to view::
 We also set up another model that the viewlet manager and viewlets should
 not be associated with::
 
-  >>> from viewlet_context2 import Club
+  >>> from .viewlet_context2 import Club
   >>> root['club'] = club = Club()
 
 Let's get a viewletmanager associated with ``cave``::
@@ -48,7 +48,7 @@ with the same context::
   ...   IViewlet, name='fredviewlet')
   Traceback (most recent call last):
     ...
-  ComponentLookupError: ...
+  zope.interface.interfaces.ComponentLookupError: ...
 
 """
 
