@@ -16,11 +16,11 @@ Set up a content object in the application root::
 Traverse to the view on the model object. We get the viewlets
 registered for the default layer, with the anybody permission::
 
-  >>> from zope.app.wsgi.testlayer import Browser
+  >>> from zope.testbrowser.wsgi import Browser
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open("http://localhost/fred/@@orderview")
-  >>> print browser.contents
+  >>> print(browser.contents)
   <ul>
    <li>Barney</li>
    <li>Bone</li>
@@ -46,16 +46,13 @@ class OrderView(grok.View):
 class CaveManager(grok.ViewletManager):
     grok.name('cave')
 
-    def viewlet_dict(self):
-        v_dict={}
-        for v in self.viewlets:
-            v_dict[v.__name__]=v
-        return v_dict
-
-    def viewlet_keys_sorted(self):
-        k=self.viewlet_dict().keys()
-        k.sort()
-        return k
+    def update(self):
+        super(CaveManager, self).update()
+        viewlets = list(self.viewlets)
+        self.viewlet_dict = {}
+        for v in viewlets:
+            self.viewlet_dict[v.__name__] = v
+        self.viewlet_keys_sorted = sorted(self.viewlet_dict.keys())
 
 
 class CaveViewlet(grok.Viewlet):

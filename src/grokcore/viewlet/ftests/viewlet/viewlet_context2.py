@@ -7,4 +7,3 @@ import grokcore.viewlet as grok
 
 class Club(grok.Context):
     pass
-

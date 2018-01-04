@@ -45,12 +45,15 @@ def suiteFromPackage(name):
             continue
 
         dottedname = 'grokcore.viewlet.tests.%s.%s' % (name, filename[:-3])
-        test = doctest.DocTestSuite(dottedname,
-                                    setUp=setUpZope,
-                                    tearDown=cleanUpZope,
-                                    checker=checker,
-                                    optionflags=doctest.ELLIPSIS+
-                                    doctest.NORMALIZE_WHITESPACE)
+        test = doctest.DocTestSuite(
+            dottedname,
+            setUp=setUpZope,
+            tearDown=cleanUpZope,
+            checker=checker,
+            optionflags=(
+                doctest.ELLIPSIS+
+                doctest.NORMALIZE_WHITESPACE +
+                renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2))
 
         suite.addTest(test)
     return suite

@@ -16,12 +16,20 @@ import re
 import unittest
 import doctest
 import grokcore.viewlet
+import zope.testbrowser.wsgi
+import zope.app.wsgi.testlayer
 
 from pkg_resources import resource_listdir
 from zope.testing import renormalizing
-from zope.app.wsgi.testlayer import BrowserLayer
 
-FunctionalLayer = BrowserLayer(grokcore.viewlet)
+
+class Layer(
+        zope.testbrowser.wsgi.TestBrowserLayer,
+        zope.app.wsgi.testlayer.BrowserLayer):
+    pass
+
+layer = Layer(grokcore.viewlet, allowTearDown=True)
+
 
 checker = renormalizing.RENormalizing([
     # Accommodate to exception wrapping in newer versions of mechanize
@@ -42,14 +50,17 @@ def suiteFromPackage(name):
         test = doctest.DocTestSuite(
             dottedname,
             checker=checker,
-            extraglobs=dict(getRootFolder=FunctionalLayer.getRootFolder,),
-            optionflags=(doctest.ELLIPSIS+
-                         doctest.NORMALIZE_WHITESPACE+
-                         doctest.REPORT_NDIFF))
-        test.layer = FunctionalLayer
+            extraglobs=dict(getRootFolder=layer.getRootFolder,),
+            optionflags=(
+                doctest.ELLIPSIS +
+                doctest.NORMALIZE_WHITESPACE +
+                doctest.REPORT_NDIFF +
+                renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2))
+        test.layer = layer
 
         suite.addTest(test)
     return suite
+
 
 def test_suite():
     suite = unittest.TestSuite()

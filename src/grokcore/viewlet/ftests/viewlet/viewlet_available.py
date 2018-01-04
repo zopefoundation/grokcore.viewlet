@@ -17,11 +17,11 @@ Set up a content object in the application root::
 Traverse to the view on the model object and render the viewlets "Brack Bone"
 and "T-Rex Bone", but not the "Elephant Bone":
 
-  >>> from zope.app.wsgi.testlayer import Browser
+  >>> from zope.testbrowser.wsgi import Browser
   >>> browser = Browser()
   >>> browser.handleErrors = False
   >>> browser.open("http://localhost/wilma/@@bonesview")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Brack Bone
   T-Rex Bone
 
@@ -29,7 +29,7 @@ At some point in time, the Sabre Tooth Bone becomes availalble:
 
   >>> SabreToothBone._available = True
   >>> browser.open("http://localhost/wilma/@@bonesview")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Brack Bone
   Sabre Tooth Bone
   T-Rex Bone
@@ -41,7 +41,7 @@ computed as wel.
 First it is there:
 
   >>> browser.open("http://localhost/wilma/@@bonesview?requestcounting=true")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Brack Bone
   Only for every other request!
   Sabre Tooth Bone
@@ -50,7 +50,7 @@ First it is there:
 Next request it is not:
 
   >>> browser.open("http://localhost/wilma/@@bonesview?requestcounting=true")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Brack Bone
   Sabre Tooth Bone
   T-Rex Bone
@@ -58,7 +58,7 @@ Next request it is not:
 And then we have it again:
 
   >>> browser.open("http://localhost/wilma/@@bonesview?requestcounting=true")
-  >>> print browser.contents
+  >>> print(browser.contents)
   Brack Bone
   Only for every other request!
   Sabre Tooth Bone
