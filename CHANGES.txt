@@ -4,8 +4,7 @@ Changes
 1.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
-
+- Python 3 compatibility.
 
 1.11 (2012-09-04)
 -----------------
@@ -116,4 +115,3 @@ Changes
 * Created ``grokcore.viewlet`` in November 2008 by factoring
   ``zope.viewlet``-based components, grokkers and directives out of
   Grok.
-
