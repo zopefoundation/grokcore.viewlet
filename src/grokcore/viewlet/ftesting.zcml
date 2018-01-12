@@ -35,7 +35,7 @@
   <role id="grok.BoneOwner" title="Bone Owner" />
   <grant role="grok.BoneOwner" permission="bone.gold" />
 
-  <grok:grok package="grokcore.viewlet.ftests" />
+  <grok:grok package="grokcore.viewlet.tests.functional" />
 
   <securityPolicy
       component="zope.securitypolicy.zopepolicy.ZopeSecurityPolicy"

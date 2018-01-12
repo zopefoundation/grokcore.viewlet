@@ -8,7 +8,7 @@ associated with it at the same time.
   zope.configuration.config.ConfigurationExecutionError: \
   martian.error.GrokError: Multiple possible ways to render viewlet \
   <class \
-  'grokcore.viewlet.tests.viewlet.viewlet_render_and_template.Viewlet'>. \
+  'grokcore.viewlet.tests.base.viewlet.viewlet_render_and_template.Viewlet'>. \
   It has both a 'render' method as well as an associated template. in:
 
 """

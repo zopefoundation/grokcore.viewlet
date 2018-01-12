@@ -6,7 +6,7 @@ a viewlet will not auto-associate but instead raise an error.
   Traceback (most recent call last):
     ...
   martian.error.GrokError: Multiple possible viewletmanagers for \
-  <class 'grokcore.viewlet.tests.viewlet.viewlet_ambiguous_manager.Viewlet'>, \
+  <class 'grokcore.viewlet.tests.base.viewlet.viewlet_ambiguous_manager.Viewlet'>, \
   please use the 'viewletmanager' directive.
 
 """
