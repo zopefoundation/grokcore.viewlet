@@ -33,7 +33,7 @@ manager associated with that as a context::
 We can get the viewlet for ``cave``::
 
   >>> mgr['fredviewlet']
-  <grokcore.viewlet.ftests.viewlet.viewlet_context.FredViewlet object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.viewlet_context.FredViewlet object at ...>
 
 We can also directly look it up using a manual lookup::
 

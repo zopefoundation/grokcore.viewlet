@@ -15,48 +15,51 @@
 import re
 import unittest
 import doctest
-import grokcore.viewlet
-import zope.testbrowser.wsgi
-import zope.app.wsgi.testlayer
-
 from pkg_resources import resource_listdir
-from zope.testing import renormalizing
+from zope.testing import cleanup, renormalizing
+import zope.component.eventtesting
 
 
-class Layer(
-        zope.testbrowser.wsgi.TestBrowserLayer,
-        zope.app.wsgi.testlayer.BrowserLayer):
-    pass
+def setUpZope(test):
+    zope.component.eventtesting.setUp(test)
 
-layer = Layer(grokcore.viewlet, allowTearDown=True)
+
+def cleanUpZope(test):
+    cleanup.cleanUp()
 
 
 checker = renormalizing.RENormalizing([
-    # Accommodate to exception wrapping in newer versions of mechanize
-    (re.compile(r'httperror_seek_wrapper:', re.M), 'HTTPError:'),
+    # str(Exception) has changed from Python 2.4 to 2.5 (due to
+    # Exception now being a new-style class).  This changes the way
+    # exceptions appear in traceback printouts.
+    (re.compile(r"ConfigurationExecutionError: <class '([\w.]+)'>:"),
+     r'ConfigurationExecutionError: \1:'),
     ])
 
 
 def suiteFromPackage(name):
-    files = resource_listdir(__name__, name)
+    layer_dir = 'base'
+    files = resource_listdir(__name__, '{}/{}'.format(layer_dir, name))
     suite = unittest.TestSuite()
     for filename in files:
         if not filename.endswith('.py'):
             continue
+        if filename.endswith('_fixture.py'):
+            continue
         if filename == '__init__.py':
             continue
 
-        dottedname = 'grokcore.viewlet.ftests.%s.%s' % (name, filename[:-3])
+        dottedname = 'grokcore.viewlet.tests.%s.%s.%s' % (
+            layer_dir, name, filename[:-3])
         test = doctest.DocTestSuite(
             dottedname,
+            setUp=setUpZope,
+            tearDown=cleanUpZope,
             checker=checker,
-            extraglobs=dict(getRootFolder=layer.getRootFolder,),
             optionflags=(
                 doctest.ELLIPSIS +
                 doctest.NORMALIZE_WHITESPACE +
-                doctest.REPORT_NDIFF +
                 renormalizing.IGNORE_EXCEPTION_MODULE_IN_PYTHON2))
-        test.layer = layer
 
         suite.addTest(test)
     return suite

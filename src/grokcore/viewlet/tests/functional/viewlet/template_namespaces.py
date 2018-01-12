@@ -13,10 +13,10 @@ Let's look at the first template, which includes the viewlet::
   >>> browser.handleErrors = False
   >>> browser.open("http://localhost/cave/@@index")
   >>> print(browser.contents)
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.Cave object at ...>
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.Index object at ...>
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.MirandaViewlet object at ...>
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.CavewomenViewletManager object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.Cave object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.Index object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.MirandaViewlet object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.CavewomenViewletManager object at ...>
 
 This is indeed what we expected from the viewlet.
 
@@ -24,9 +24,9 @@ Let's look at a template for the viewlet manager too::
 
   >>> browser.open("http://localhost/cave/@@necklace")
   >>> print(browser.contents)
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.Cave object at ...>
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.Necklace object at ...>
-  <grokcore.viewlet.ftests.viewlet.template_namespaces.CavewomenViewletManagerWithTemplate object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.Cave object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.Necklace object at ...>
+  <grokcore.viewlet.tests.functional.viewlet.template_namespaces.CavewomenViewletManagerWithTemplate object at ...>
 
 """
 import grokcore.viewlet as grok
