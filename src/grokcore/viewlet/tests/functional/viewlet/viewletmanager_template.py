@@ -48,9 +48,8 @@ class CaveManager(grok.ViewletManager):
 
     def update(self):
         super(CaveManager, self).update()
-        viewlets = list(self.viewlets)
         self.viewlet_dict = {}
-        for v in viewlets:
+        for v in self.viewlets:
             self.viewlet_dict[v.__name__] = v
         self.viewlet_keys_sorted = sorted(self.viewlet_dict.keys())
 

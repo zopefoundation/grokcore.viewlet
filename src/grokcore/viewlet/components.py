@@ -66,7 +66,7 @@ class ViewletManager(ViewletManagerBase):
         super(ViewletManager, self).update()
         # Filter out the unavailable viewlets *after* the viewlet's update()
         # has been called.
-        self.viewlets = filter(lambda v: v.available(), self.viewlets)
+        self.viewlets = [v for v in self.viewlets if v.available()]
 
     def render(self):
         """See zope.contentprovider.interfaces.IContentProvider"""
