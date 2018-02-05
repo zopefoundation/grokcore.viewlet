@@ -4,8 +4,9 @@ Changes
 3.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- viewletmanager.viewlets should be a list so we can iterate over it several
+  times in consumer code instead of having to remember it's an iterable we can
+  only list once.
 
 3.0.1 (2018-01-12)
 ------------------
