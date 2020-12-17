@@ -10,7 +10,7 @@ long_description = (
     read('README.txt')
     + '\n' +
     read('CHANGES.txt')
-    )
+)
 
 tests_require = [
     'zope.annotation',
@@ -25,11 +25,11 @@ tests_require = [
     'zope.testbrowser',
     'zope.testing',
     'zope.traversing',
-    ]
+]
 
 setup(
     name='grokcore.viewlet',
-    version='3.1.1.dev0',
+    version='3.2.0.dev0',
     author='Grok Team',
     author_email='grok-dev@zope.org',
     url='http://grok.zope.org',
@@ -45,14 +45,16 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
         'Programming Language :: Python :: Implementation',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Framework :: Zope :: 3',
-        ],
+    ],
     packages=find_packages('src'),
     package_dir={'': 'src'},
     namespace_packages=['grokcore'],
@@ -72,7 +74,7 @@ setup(
         'zope.publisher',
         'zope.security',
         'zope.viewlet',
-        ],
+    ],
     tests_require=tests_require,
     extras_require={'test': tests_require},
 )

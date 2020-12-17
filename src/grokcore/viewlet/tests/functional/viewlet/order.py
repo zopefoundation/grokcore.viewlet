@@ -43,15 +43,19 @@ viewletmanager to override the sort() method::
 
 import grokcore.viewlet as grok
 
+
 class Fred(grok.Context):
     pass
+
 
 class OrderView(grok.View):
     pass
 
+
 class CaveManager(grok.ViewletManager):
     grok.view(OrderView)
     grok.name('cave')
+
 
 class CaveViewlet(grok.Viewlet):
     grok.order(30)
@@ -60,12 +64,14 @@ class CaveViewlet(grok.Viewlet):
     def render(self):
         return u"Cave"
 
+
 class BarneyViewlet(grok.Viewlet):
     grok.order(60)
     grok.viewletmanager(CaveManager)
 
     def render(self):
         return u"Barney"
+
 
 class BoneViewlet(grok.Viewlet):
     grok.order(10)
@@ -74,12 +80,14 @@ class BoneViewlet(grok.Viewlet):
     def render(self):
         return u"Bone"
 
+
 class WilmaViewlet(grok.Viewlet):
     grok.order(50)
     grok.viewletmanager(CaveManager)
 
     def render(self):
         return u"Wilma"
+
 
 class GoldViewlet(grok.Viewlet):
     grok.order(1)
@@ -88,6 +96,7 @@ class GoldViewlet(grok.Viewlet):
     def render(self):
         return u"Gold"
 
+
 class FredViewlet(grok.Viewlet):
     grok.order(20)
     grok.viewletmanager(CaveManager)
@@ -95,8 +104,10 @@ class FredViewlet(grok.Viewlet):
     def render(self):
         return u"Fred"
 
+
 class OrderView2(grok.View):
     grok.template('orderview')
+
 
 class CaveManager2(grok.ViewletManager):
     grok.view(OrderView2)
@@ -106,12 +117,14 @@ class CaveManager2(grok.ViewletManager):
         # Alphabetical-by-name, reversed.
         return sorted(viewlets, reverse=True)
 
+
 class NoExplicitOrderCaveViewlet(grok.Viewlet):
     grok.name('cave')
     grok.viewletmanager(CaveManager2)
 
     def render(self):
         return u"Cave"
+
 
 class NoExplicitOrderBarneyViewlet(grok.Viewlet):
     grok.name('barney')

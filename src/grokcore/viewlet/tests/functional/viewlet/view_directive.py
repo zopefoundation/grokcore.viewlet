@@ -40,5 +40,6 @@ class BoneView(grok.View):
 
 grok.view(CaveView)
 
+
 class CaveManager(grok.ViewletManager):
     grok.name('cave')

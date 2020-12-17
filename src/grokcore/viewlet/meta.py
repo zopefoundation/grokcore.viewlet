@@ -13,7 +13,6 @@
 ##############################################################################
 """Grokkers for the various components."""
 
-from zope import component
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from zope.viewlet.interfaces import IViewletManager, IViewlet
 
@@ -24,7 +23,6 @@ import grokcore.view
 from grokcore.view.meta.views import default_view_name, TemplateGrokker
 import grokcore.security
 import grokcore.viewlet
-from grokcore.viewlet import components
 from grokcore.viewlet.util import make_checker
 
 
@@ -76,6 +74,7 @@ class ViewletTemplateGrokker(TemplateGrokker):
 
     def has_no_render(self, factory):
         return not self.has_render(factory)
+
 
 class ViewletGrokker(martian.ClassGrokker):
     martian.component(grokcore.viewlet.Viewlet)

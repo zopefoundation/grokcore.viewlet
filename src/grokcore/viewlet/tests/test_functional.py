@@ -12,6 +12,7 @@ class Layer(
         zope.app.wsgi.testlayer.BrowserLayer):
     pass
 
+
 layer = Layer(grokcore.viewlet, allowTearDown=True)
 
 
@@ -46,6 +47,7 @@ def test_suite():
     for name in ['viewlet']:
         suite.addTest(suiteFromPackage(name))
     return suite
+
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')

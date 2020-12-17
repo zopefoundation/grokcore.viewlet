@@ -69,18 +69,20 @@ And then we have it again:
 
 import grokcore.viewlet as grok
 from zope.interface import Interface
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 
 
 class CaveWoman(grok.Context):
     pass
 
+
 class BonesView(grok.View):
     grok.context(Interface)
+
 
 class Bones(grok.ViewletManager):
     grok.context(Interface)
     grok.name('bones')
+
 
 class BrackerBone(grok.Viewlet):
     grok.context(Interface)
@@ -89,12 +91,14 @@ class BrackerBone(grok.Viewlet):
     def render(self):
         return u"Brack Bone"
 
+
 class TRexBone(grok.Viewlet):
     grok.context(Interface)
     grok.viewletmanager(Bones)
 
     def render(self):
         return u"T-Rex Bone"
+
 
 class ElephantBone(grok.Viewlet):
     grok.context(Interface)
@@ -107,6 +111,7 @@ class ElephantBone(grok.Viewlet):
     def render(self):
         return u"Elephant Bone"
 
+
 class SabreToothBone(grok.Viewlet):
     grok.context(Interface)
     grok.viewletmanager(Bones)
@@ -118,6 +123,7 @@ class SabreToothBone(grok.Viewlet):
 
     def render(self):
         return u"Sabre Tooth Bone"
+
 
 class OnlyForEvenRequest(grok.Viewlet):
     # Convoluted example of a viewlet that is available only for every

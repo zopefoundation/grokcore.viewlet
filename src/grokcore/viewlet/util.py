@@ -17,7 +17,7 @@ from zope.security.checker import NamesChecker, defineChecker
 
 from grokcore.security.util import check_permission
 # BBB
-from grokcore.component import sort_components
+from grokcore.component import sort_components  # noqa: F401 import but unused
 
 
 def make_checker(factory, view_factory, permission, method_names=None):
@@ -35,4 +35,3 @@ def make_checker(factory, view_factory, permission, method_names=None):
     else:
         checker = NamesChecker(method_names, permission)
     defineChecker(view_factory, checker)
-

@@ -9,7 +9,7 @@ a viewlet will not auto-associate but instead raise an error.
   <class 'grokcore.viewlet.tests.base.viewlet.viewlet_ambiguous_manager.Viewlet'>, \
   please use the 'viewletmanager' directive.
 
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.viewlet as grok
 from zope.interface import Interface
