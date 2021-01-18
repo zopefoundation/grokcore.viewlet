@@ -50,7 +50,7 @@ with the same context::
     ...
   zope.interface.interfaces.ComponentLookupError: ...
 
-"""
+"""  # noqa: E501 line too long
 
 import grokcore.viewlet as grok
 

@@ -19,6 +19,7 @@ from martian.util import scan_for_classes
 from martian.error import GrokError
 from grokcore.viewlet.interfaces import IViewletManager
 
+
 class viewletmanager(martian.Directive):
     scope = martian.CLASS_OR_MODULE
     store = martian.ONCE

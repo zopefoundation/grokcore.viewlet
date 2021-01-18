@@ -28,27 +28,32 @@ Let's look at a template for the viewlet manager too::
   <grokcore.viewlet.tests.functional.viewlet.template_namespaces.Necklace object at ...>
   <grokcore.viewlet.tests.functional.viewlet.template_namespaces.CavewomenViewletManagerWithTemplate object at ...>
 
-"""
+"""  # noqa: E501 line too long
 import grokcore.viewlet as grok
 
 
 class Cave(grok.Context):
     pass
 
+
 class Index(grok.View):
     pass
+
 
 class CavewomenViewletManager(grok.ViewletManager):
     grok.name('manage.cavewomen')
     grok.view(Index)
+
 
 class MirandaViewlet(grok.Viewlet):
     grok.template('mirandaviewlet')
     grok.view(Index)
     grok.viewletmanager(CavewomenViewletManager)
 
+
 class Necklace(grok.View):
     pass
+
 
 class CavewomenViewletManagerWithTemplate(grok.ViewletManager):
     grok.name('manage.cavewomenwithtemplate')

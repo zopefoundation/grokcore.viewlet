@@ -19,14 +19,18 @@ Viewing the cave object should result in the viewlet being displayed::
 """
 import grokcore.viewlet as grok
 
+
 class CavemenViewletManager(grok.ViewletManager):
     grok.name('manage.cavemen')
+
 
 class FredViewlet(grok.Viewlet):
     grok.viewletmanager(CavemenViewletManager)
 
+
 class Cave(grok.Context):
     pass
+
 
 class Index(grok.View):
     pass

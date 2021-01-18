@@ -34,7 +34,7 @@ checker = renormalizing.RENormalizing([
     # exceptions appear in traceback printouts.
     (re.compile(r"ConfigurationExecutionError: <class '([\w.]+)'>:"),
      r'ConfigurationExecutionError: \1:'),
-    ])
+])
 
 
 def suiteFromPackage(name):
@@ -70,6 +70,7 @@ def test_suite():
     for name in ['viewlet']:
         suite.addTest(suiteFromPackage(name))
     return suite
+
 
 if __name__ == '__main__':
     unittest.main(defaultTest='test_suite')
