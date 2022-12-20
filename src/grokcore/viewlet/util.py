@@ -13,11 +13,11 @@
 ##############################################################################
 """Grok utility functions.
 """
-from zope.security.checker import NamesChecker, defineChecker
-
-from grokcore.security.util import check_permission
 # BBB
 from grokcore.component import sort_components  # noqa: F401 import but unused
+from grokcore.security.util import check_permission
+from zope.security.checker import NamesChecker
+from zope.security.checker import defineChecker
 
 
 def make_checker(factory, view_factory, permission, method_names=None):

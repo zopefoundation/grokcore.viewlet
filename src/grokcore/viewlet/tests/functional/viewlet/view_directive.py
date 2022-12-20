@@ -31,7 +31,7 @@ class Fred(grok.Context):
 
 class CaveView(grok.View):
     def render(self):
-        return u"Cave"
+        return "Cave"
 
 
 class BoneView(grok.View):

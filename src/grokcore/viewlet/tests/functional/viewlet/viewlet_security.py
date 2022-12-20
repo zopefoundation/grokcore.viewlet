@@ -102,9 +102,10 @@ get those names.
 """
 
 
-import grokcore.viewlet as grok
 from zope.interface import Interface
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+
+import grokcore.viewlet as grok
 
 
 class CaveWoman(grok.Context):
@@ -134,7 +135,7 @@ class TRexBone(grok.Viewlet):
     grok.viewletmanager(Pot)
 
     def render(self):
-        return u"T-Rex Bone"
+        return "T-Rex Bone"
 
 
 class BrackerBone(grok.Viewlet):
@@ -142,7 +143,7 @@ class BrackerBone(grok.Viewlet):
     grok.viewletmanager(Pot)
 
     def render(self):
-        return u"Brack Bone"
+        return "Brack Bone"
 
 
 class GoldBone(grok.Viewlet):
@@ -151,7 +152,7 @@ class GoldBone(grok.Viewlet):
     grok.require('bone.gold')
 
     def render(self):
-        return u"Gold Bone"
+        return "Gold Bone"
 
 
 class IBoneLayer(IDefaultBrowserLayer):
@@ -164,7 +165,7 @@ class LayeredBone(grok.Viewlet):
     grok.layer(IBoneLayer)
 
     def render(self):
-        return u"Layered Bone"
+        return "Layered Bone"
 
 
 class ManBone(grok.Viewlet):
@@ -172,7 +173,7 @@ class ManBone(grok.Viewlet):
     grok.context(CaveMan)
 
     def render(self):
-        return u"Man Bone"
+        return "Man Bone"
 
 
 class LadyViewlet(grok.Viewlet):
@@ -181,7 +182,7 @@ class LadyViewlet(grok.Viewlet):
     grok.view(FireView)
 
     def render(self):
-        return u"Lady Viewlet"
+        return "Lady Viewlet"
 
 
 class NamedViewletManager(grok.ViewletManager):
@@ -195,4 +196,4 @@ class NamedViewlet(grok.Viewlet):
     grok.viewletmanager(NamedViewletManager)
 
     def render(self):
-        return u"NamedViewlet"
+        return "NamedViewlet"

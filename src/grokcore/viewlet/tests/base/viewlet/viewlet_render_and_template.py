@@ -2,8 +2,7 @@
 A viewlet is not allowed to define its own render method and have a template
 associated with it at the same time.
 
-  # PY2 - remove '+IGNORE_EXCEPTION_DETAIL'  when dropping Python 2 support:
-  >>> grok.testing.grok(__name__)  # doctest: +IGNORE_EXCEPTION_DETAIL
+  >>> grok.testing.grok(__name__)
   Traceback (most recent call last):
     ...
   zope.configuration.config.ConfigurationExecutionError: \
@@ -14,8 +13,9 @@ associated with it at the same time.
 
 """
 
-import grokcore.viewlet as grok
 from zope.interface import Interface
+
+import grokcore.viewlet as grok
 
 
 class ViewletManager(grok.ViewletManager):
@@ -28,4 +28,4 @@ class Viewlet(grok.Viewlet):
     grok.context(Interface)
 
     def render(self):
-        return u"Render method but also a template!"
+        return "Render method but also a template!"

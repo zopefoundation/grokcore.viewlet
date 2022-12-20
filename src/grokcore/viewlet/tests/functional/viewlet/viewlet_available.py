@@ -67,8 +67,9 @@ And then we have it again:
 """
 
 
-import grokcore.viewlet as grok
 from zope.interface import Interface
+
+import grokcore.viewlet as grok
 
 
 class CaveWoman(grok.Context):
@@ -89,7 +90,7 @@ class BrackerBone(grok.Viewlet):
     grok.viewletmanager(Bones)
 
     def render(self):
-        return u"Brack Bone"
+        return "Brack Bone"
 
 
 class TRexBone(grok.Viewlet):
@@ -97,7 +98,7 @@ class TRexBone(grok.Viewlet):
     grok.viewletmanager(Bones)
 
     def render(self):
-        return u"T-Rex Bone"
+        return "T-Rex Bone"
 
 
 class ElephantBone(grok.Viewlet):
@@ -109,7 +110,7 @@ class ElephantBone(grok.Viewlet):
         return False
 
     def render(self):
-        return u"Elephant Bone"
+        return "Elephant Bone"
 
 
 class SabreToothBone(grok.Viewlet):
@@ -122,7 +123,7 @@ class SabreToothBone(grok.Viewlet):
         return self._available
 
     def render(self):
-        return u"Sabre Tooth Bone"
+        return "Sabre Tooth Bone"
 
 
 class OnlyForEvenRequest(grok.Viewlet):
@@ -142,4 +143,4 @@ class OnlyForEvenRequest(grok.Viewlet):
         return False
 
     def render(self):
-        return u"Only for every other request!"
+        return "Only for every other request!"
