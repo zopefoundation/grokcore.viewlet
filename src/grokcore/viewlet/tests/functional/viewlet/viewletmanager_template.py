@@ -47,7 +47,7 @@ class CaveManager(grok.ViewletManager):
     grok.name('cave')
 
     def update(self):
-        super(CaveManager, self).update()
+        super().update()
         self.viewlet_dict = {}
         for v in self.viewlets:
             self.viewlet_dict[v.__name__] = v
@@ -60,7 +60,7 @@ class CaveViewlet(grok.Viewlet):
     grok.name('Cave')
 
     def render(self):
-        return u"Cave"
+        return "Cave"
 
 
 class BarneyViewlet(grok.Viewlet):
@@ -75,7 +75,7 @@ class BoneViewlet(grok.Viewlet):
     grok.name('Bone')
 
     def render(self):
-        return u"Bone"
+        return "Bone"
 
 
 class WilmaViewlet(grok.Viewlet):
@@ -84,7 +84,7 @@ class WilmaViewlet(grok.Viewlet):
     grok.name('Wilma')
 
     def render(self):
-        return u"Wilma"
+        return "Wilma"
 
 
 class GoldViewlet(grok.Viewlet):
@@ -93,7 +93,7 @@ class GoldViewlet(grok.Viewlet):
     grok.name('Gold')
 
     def render(self):
-        return u"Gold"
+        return "Gold"
 
 
 class FredViewlet(grok.Viewlet):
@@ -102,4 +102,4 @@ class FredViewlet(grok.Viewlet):
     grok.name('Fred')
 
     def render(self):
-        return u"Fred"
+        return "Fred"

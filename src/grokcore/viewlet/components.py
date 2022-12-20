@@ -15,11 +15,13 @@
 
 from operator import itemgetter
 
-from zope import component, interface
+from zope import component
+from zope import interface
 from zope.viewlet.manager import ViewletManagerBase
 from zope.viewlet.viewlet import ViewletBase
 
-from grokcore.viewlet import interfaces, util
+from grokcore.viewlet import interfaces
+from grokcore.viewlet import util
 
 
 @interface.implementer(interfaces.IViewletManager)
@@ -28,7 +30,7 @@ class ViewletManager(ViewletManagerBase):
     template = None
 
     def __init__(self, context, request, view):
-        super(ViewletManager, self).__init__(context, request, view)
+        super().__init__(context, request, view)
         self.context = context
         self.request = request
         self.view = view
@@ -63,7 +65,7 @@ class ViewletManager(ViewletManagerBase):
         return {}
 
     def update(self):
-        super(ViewletManager, self).update()
+        super().update()
         # Filter out the unavailable viewlets *after* the viewlet's update()
         # has been called.
         self.viewlets = [v for v in self.viewlets if v.available()]
@@ -74,7 +76,7 @@ class ViewletManager(ViewletManagerBase):
         if self.template:
             return self.template.render(self)
         else:
-            return u'\n'.join([viewlet.render() for viewlet in self.viewlets])
+            return '\n'.join([viewlet.render() for viewlet in self.viewlets])
     # Mark the render() method as a method from the base class. That
     # way we can detect whether somebody overrides render() in a subclass.
     render.base_method = True
@@ -85,7 +87,7 @@ class Viewlet(ViewletBase):
     """
 
     def __init__(self, context, request, view, manager):
-        super(Viewlet, self).__init__(context, request, view, manager)
+        super().__init__(context, request, view, manager)
         self.context = context
         self.request = request
         self.view = view

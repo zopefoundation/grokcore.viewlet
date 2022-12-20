@@ -13,15 +13,16 @@
 ##############################################################################
 """Grokkers for the various components."""
 
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from zope.viewlet.interfaces import IViewletManager, IViewlet
-
-import martian
-
 import grokcore.component
-import grokcore.view
-from grokcore.view.meta.views import default_view_name, TemplateGrokker
 import grokcore.security
+import grokcore.view
+import martian
+from grokcore.view.meta.views import TemplateGrokker
+from grokcore.view.meta.views import default_view_name
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+from zope.viewlet.interfaces import IViewlet
+from zope.viewlet.interfaces import IViewletManager
+
 import grokcore.viewlet
 from grokcore.viewlet.util import make_checker
 
@@ -50,7 +51,7 @@ class ViewletManagerGrokker(martian.ClassGrokker):
         # Need to store the module info object on the view class so that it
         # can look up the 'static' resource directory.
         factory.module_info = module_info
-        return super(ViewletManagerGrokker, self).grok(
+        return super().grok(
             name, factory, module_info, **kw)
 
     def execute(self, factory, config, context, layer, view, name, **kw):
@@ -89,7 +90,7 @@ class ViewletGrokker(martian.ClassGrokker):
         # Need to store the module info object on the view class so that it
         # can look up the 'static' resource directory.
         factory.module_info = module_info
-        return super(ViewletGrokker, self).grok(
+        return super().grok(
             name, factory, module_info, **kw)
 
     def execute(self, factory, config,

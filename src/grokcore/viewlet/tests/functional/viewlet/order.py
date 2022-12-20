@@ -62,7 +62,7 @@ class CaveViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Cave"
+        return "Cave"
 
 
 class BarneyViewlet(grok.Viewlet):
@@ -70,7 +70,7 @@ class BarneyViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Barney"
+        return "Barney"
 
 
 class BoneViewlet(grok.Viewlet):
@@ -78,7 +78,7 @@ class BoneViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Bone"
+        return "Bone"
 
 
 class WilmaViewlet(grok.Viewlet):
@@ -86,7 +86,7 @@ class WilmaViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Wilma"
+        return "Wilma"
 
 
 class GoldViewlet(grok.Viewlet):
@@ -94,7 +94,7 @@ class GoldViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Gold"
+        return "Gold"
 
 
 class FredViewlet(grok.Viewlet):
@@ -102,7 +102,7 @@ class FredViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager)
 
     def render(self):
-        return u"Fred"
+        return "Fred"
 
 
 class OrderView2(grok.View):
@@ -123,7 +123,7 @@ class NoExplicitOrderCaveViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager2)
 
     def render(self):
-        return u"Cave"
+        return "Cave"
 
 
 class NoExplicitOrderBarneyViewlet(grok.Viewlet):
@@ -131,4 +131,4 @@ class NoExplicitOrderBarneyViewlet(grok.Viewlet):
     grok.viewletmanager(CaveManager2)
 
     def render(self):
-        return u"Barney"
+        return "Barney"

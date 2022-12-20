@@ -11,8 +11,9 @@ a viewlet will not auto-associate but instead raise an error.
 
 """  # noqa: E501 line too long
 
-import grokcore.viewlet as grok
 from zope.interface import Interface
+
+import grokcore.viewlet as grok
 
 
 class ViewletManager(grok.ViewletManager):
@@ -29,4 +30,4 @@ class Viewlet(grok.Viewlet):
     grok.context(Interface)
 
     def render(self):
-        return u"Render method"
+        return "Render method"

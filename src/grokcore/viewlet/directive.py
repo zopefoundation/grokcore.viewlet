@@ -15,8 +15,9 @@
 """
 
 import martian
-from martian.util import scan_for_classes
 from martian.error import GrokError
+from martian.util import scan_for_classes
+
 from grokcore.viewlet.interfaces import IViewletManager
 
 

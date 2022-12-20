@@ -13,12 +13,11 @@
 ##############################################################################
 """Grok interfaces
 """
-from zope import interface
-from zope.viewlet.interfaces import IViewletManager as IViewletManagerBase
-
 import grokcore.component.interfaces
 import grokcore.security.interfaces
 import grokcore.view.interfaces
+from zope import interface
+from zope.viewlet.interfaces import IViewletManager as IViewletManagerBase
 
 
 class IBaseClasses(grokcore.component.interfaces.IBaseClasses,

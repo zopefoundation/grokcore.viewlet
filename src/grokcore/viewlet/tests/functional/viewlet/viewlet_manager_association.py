@@ -26,7 +26,7 @@ class CavemenViewletManager(grok.ViewletManager):
 
 class FredViewlet(grok.Viewlet):
     def render(self):
-        return u"Me say HI"
+        return "Me say HI"
 
 
 class Cave(grok.Context):
