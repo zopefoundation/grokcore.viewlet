@@ -5,13 +5,14 @@ from setuptools import setup
 
 
 def read(*rnames):
-    return open(os.path.join(os.path.dirname(__file__), *rnames)).read()
+    with open(os.path.join(os.path.dirname(__file__), *rnames)) as f:
+        return f.read()
 
 
 long_description = (
-    read('README.txt')
+    read('README.rst')
     + '\n' +
-    read('CHANGES.txt')
+    read('CHANGES.rst')
 )
 
 tests_require = [
@@ -34,8 +35,8 @@ setup(
     version='4.0.dev0',
     author='Grok Team',
     author_email='grok-dev@zope.org',
-    url='http://grok.zope.org',
-    download_url='http://cheeseshop.python.org/pypi/grokcore.viewlet',
+    url='https://github.com/zopefoundation/grokcore.viewlet',
+    download_url='https://pypi.org/project/grokcore.viewlet',
     description='Grok-like configuration for zope viewlets',
     long_description=long_description,
     license='ZPL',
@@ -75,6 +76,5 @@ setup(
         'zope.security',
         'zope.viewlet',
     ],
-    tests_require=tests_require,
     extras_require={'test': tests_require},
 )

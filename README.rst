@@ -27,12 +27,13 @@ First we need a view to call our viewlet manager::
        pass
 
    index = viewlet.Page Template("""
-   <body>
-   <head>Test</head>
-   <body>
-   <div tail:content="structure provider:content">
-   </div>
-   </body>
+   <html>
+     <head>Test</head>
+     <body>
+       <div tail:content="structure provider:content">
+       </div>
+     </body>
+   </html>
    """)
 
 After that we could define only a manager which display something::
@@ -57,7 +58,7 @@ And some viewlets for that one::
        viewlet.viewletmanager(AdvancedContent)
 
        def render(self):
-           return u'<p> Data from %s</p>' self.context.id
+           return f'<p> Data from {self.context.id}</p>'
 
 Or::
 
@@ -67,10 +68,10 @@ Or::
        viewlet.require('agent.secret')
 
    secretdata = viewlet.PageTemplate("""
-   <p>Nothing to see here.</p>
+     <p>Nothing to see here.</p>
    """)
 
-The way templates are binded to components works exactly the way than
+The way templates are bound to components works exactly the way as
 in `grokcore.view`_, for more information refer to its
 documentation.
 
@@ -122,7 +123,7 @@ To that is added:
 Additionally, the ``grokcore.viewlet`` package exposes the
 `grokcore.component`_, `grokcore.security`_ and `grokcore.view`_ APIs.
 
-.. _grokcore.component: http://pypi.python.org/pypi/grokcore.component
-.. _grokcore.viewlet: http://pypi.python.org/pypi/grokcore.viewlet
-.. _grokcore.security: http://pypi.python.org/pypi/grokcore.security
-.. _grokcore.view: http://pypi.python.org/pypi/grokcore.view
+.. _grokcore.component: https://pypi.org/project/grokcore.component
+.. _grokcore.viewlet: https://pypi.org/project/grokcore.viewlet
+.. _grokcore.security: https://pypi.org/project/grokcore.security
+.. _grokcore.view: https://pypi.org/project/grokcore.view
