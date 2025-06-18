@@ -31,7 +31,7 @@ tests_require = [
 
 setup(
     name='grokcore.viewlet',
-    version='5.0.dev0',
+    version='5.0',
     author='Grok Team',
     author_email='zope-dev@zope.dev',
     url='https://github.com/zopefoundation/grokcore.viewlet',
