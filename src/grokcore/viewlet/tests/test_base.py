@@ -14,8 +14,7 @@
 
 import doctest
 import unittest
-
-from pkg_resources import resource_listdir
+from importlib.resources import files as get_files
 
 import zope.component.eventtesting
 from zope.testing import cleanup
@@ -31,7 +30,9 @@ def cleanUpZope(test):
 
 def suiteFromPackage(name):
     layer_dir = 'base'
-    files = resource_listdir(__name__, f'{layer_dir}/{name}')
+    resource_path = get_files('grokcore.viewlet.tests').joinpath(
+        layer_dir).joinpath(name)
+    files = [item.name for item in resource_path.iterdir()]
     suite = unittest.TestSuite()
     for filename in files:
         if not filename.endswith('.py'):
